@@ -3,9 +3,11 @@ require_once('../utils/connection.php');
 $login = $_POST['login'];
 $email = $_POST['email'];
 $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
-$sql = "INSERT INTO laba2_users (login, password, email) VALUES ('$login', '$password', '$email')";
-if ($conn->query($sql) === TRUE) {
-  echo "New record created successfully";
-} else {
-  echo "Error: " . $sql . "<br>" . $conn->error;
+$sql = "INSERT INTO auth (id,login, password, email) VALUES (NULL,'$login', '$password', '$email')";
+try {
+    $conn->query($sql);
+    header('Location: ../');
+}
+  catch (\Throwable $th) {
+  echo "Error: " . $th . "<br>" . $conn->error;
 }
