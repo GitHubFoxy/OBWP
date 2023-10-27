@@ -21,28 +21,27 @@
         echo '<th>ID</th>';
         echo '<th>Login</th>';    
         echo '<th>Email</th>';
-        echo '<th>Date</th>';
+        echo '<th>Created</th>';
         echo '<th></th>';
         echo '<th></th>';
         echo '</tr>';
-        $sql = "SELECT * FROM laba2_users";    
-        $result = $conn->query($sql);
-
-        if($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc())
-            {
+        $sql = "SELECT * FROM auth";
+        try {
+            $result = $conn->query($sql);
+            $rows = $result->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($rows as $row) {
                 echo "<tr>";
                 echo "<td class='text-center'>" . $row['id']. "</td>";
                 echo "<td class='text-center'>" . $row['login']."</td>";
                 echo "<td class='text-center'>" . $row['email']."</td>"; 
-                $date = $row['date'][8] . $row['date'][9] .'.'. $row['date'][5]. $row['date'][6].'.'.$row['date'][0].$row['date'][1].$row['date'][2].$row['date'][3];
-                echo "<td class='text-center'>" . $date."</td>"; 
+                echo "<td class='text-center'>" . $row['created_at']."</td>"; 
                 echo "<td class='flex gap-1'><button id='edit' class='px-2 rounded-md hover:bg-slate-300 transition-colors py-1 bg-slate-200'>Edit</button><button id='delete' class='px-2 rounded-md hover:bg-red-500 transition-colors py-1 bg-red-400'>Delete</button>";
                 echo "</tr>";
             }
-        }
+        } catch (\Throwable $th) {
+            print_r($th);
+        }    
         echo '</table>';
-        
 ?>
     <hr class="mb-3 mt-2">
         <a class="bg-slate-200 p-1 px-2 rounded-md" href="">add new user</a>
