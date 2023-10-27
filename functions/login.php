@@ -1,9 +1,8 @@
 <?php
 require_once('../utils/connection.php');
-$login = $_POST['login'];
 $password = $_POST['password'];
 $email = $_POST['email'];
-$sql = "SELECT * FROM `auth` WHERE login = '$login' AND email = '$email'";
+$sql = "SELECT * FROM `auth` WHERE email = '$email'";
 try {
     $result = $conn->query($sql);
     $row = $result->fetchAll(PDO::FETCH_ASSOC);

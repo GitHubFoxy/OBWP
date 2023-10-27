@@ -14,7 +14,6 @@
     <main>
         <form action="./functions/login.php" method='POST' class='flex flex-col text-2xl text-center gap-5 bg-slate-700 p-5 rounded-xl'>
             <label for="" class='text-white'>Authorize</label>
-            <input type="text" class='p-2 rounded-md' placeholder='Enter login' name="login" id="">
             <input type="text" class='p-2 rounded-md' placeholder="Enter email" name="email" id="">
             <input type="text" class='p-2 rounded-md' placeholder="Enter password" name="password" id="">
             <button type="submit" class='p-2 bg-slate-500 rounded-xl transition-colors hover:bg-slate-300'>auth</button>
