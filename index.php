@@ -12,7 +12,7 @@
 <body class='grid place-content-center min-h-screen'>
     <?php require_once('./components/header.php'); ?>
     <main>
-        <form action="./functions/login.php" method='POST' class='flex flex-col text-2xl text-center gap-5 bg-slate-700 p-5 rounded-xl'>
+        <form action="./functions/login.php" method='POST' class='flex flex-col text-xl text-center gap-5 bg-slate-700 p-5 rounded-xl'>
             <label for="" class='text-white'>Authorize</label>
             <input type="text" class='p-2 rounded-md' placeholder="Enter email" name="email" id="">
             <input type="text" class='p-2 rounded-md' placeholder="Enter password" name="password" id="">

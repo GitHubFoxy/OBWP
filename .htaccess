@@ -1,0 +1,17 @@
+#Запрет выдачи листинга
+Options -Indexes
+#404
+ErrorDocument 404 /obwp/404.html
+#Защита
+#AuthName "Authentication Required"
+#AuthType Basic
+#AuthUserFile /.htpasswd
+#Require valid-user
+#Чистые ссылки
+RewriteEngine on
+
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)/?$ /$1.php [L]
+
